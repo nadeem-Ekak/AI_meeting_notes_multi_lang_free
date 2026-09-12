@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Multilingual Meeting Transcription</title>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <header>
+    <h1>🎙️ Multilingual Meeting Transcription</h1>
+    <p>Transcribe what was actually spoken — mixed languages, code-switching, and native scripts preserved.</p>
+  </header>
+
+  <main>
+    <section class="panel" id="upload-panel">
+      <h2>1 · Meeting &amp; Audio</h2>
+      <input type="text" id="meeting-title" placeholder="Meeting title" value="Sprint planning" />
+      <input type="file" id="audio-file" accept="audio/*" />
+      <div class="row">
+        <label for="language-mode">Language</label>
+        <select id="language-mode">
+          <option value="auto" selected>Auto Detect</option>
+          <option value="code-switching">Mixed / Code-Switching</option>
+        </select>
+      </div>
+      <div class="row">
+        <label><input type="checkbox" id="code-switching" checked /> Code-switching enabled</label>
+      </div>
+      <button id="btn-upload" class="primary">Upload &amp; Transcribe</button>
+      <div id="upload-status" class="status"></div>
+    </section>
+
+    <section class="panel grow" id="transcript-panel">
+      <h2>2 · Transcript</h2>
+      <div id="meeting-language" class="badge-row"></div>
+      <div id="transcript" class="transcript"></div>
+    </section>
+
+    <section class="panel" id="notes-panel">
+      <h2>3 · AI Notes</h2>
+      <div class="row">
+        <label for="notes-kind">Kind</label>
+        <select id="notes-kind">
+          <option value="summary">Summary</option>
+          <option value="notes">Notes / Action items</option>
+          <option value="mom">Minutes of Meeting (MoM)</option>
+        </select>
+      </div>
+      <div class="row">
+        <label for="notes-language">Output language</label>
+        <select id="notes-language">
+          <option value="same" selected>Same as meeting</option>
+          <option value="en">English</option>
+          <option value="hi">Hindi</option>
+        </select>
+      </div>
+      <button id="btn-notes">Generate</button>
+      <div class="row">
+        <label for="translate-language">Translate to</label>
+        <select id="translate-language">
+          <option value="en" selected>English</option>
+          <option value="hi">Hindi</option>
+        </select>
+      </div>
+      <button id="btn-translate">Translate transcript</button>
+      <div id="notes-output" class="notes-output"></div>
+    </section>
+  </main>
+
+  <section class="panel" id="tools-panel">
+    <h2>4 · Vocabulary &amp; Names</h2>
+    <div class="row">
+      <input type="text" id="vocab-term" placeholder="Term or name (e.g. Argus)" />
+      <select id="vocab-category">
+        <option value="technical">Technical</option>
+        <option value="project">Project</option>
+        <option value="person">Person name</option>
+      </select>
+      <button id="btn-vocab">Add</button>
+    </div>
+    <ul id="vocab-list" class="chip-list"></ul>
+  </section>
+
+  <section class="panel" id="settings-panel">
+    <h2>5 · Settings (LLM provider)</h2>
+    <div class="row">
+      <label for="provider-name">Provider</label>
+      <select id="provider-name">
+        <option value="deepseek" selected>DeepSeek</option>
+        <option value="openai">OpenAI</option>
+        <option value="custom">Custom</option>
+      </select>
+    </div>
+    <div class="row">
+      <input type="text" id="provider-base-url" placeholder="Base URL (for custom)" />
+    </div>
+    <div class="row">
+      <input type="password" id="provider-api-key" placeholder="API key" />
+    </div>
+    <div class="row">
+      <input type="text" id="provider-model" placeholder="Model name" />
+    </div>
+    <button id="btn-settings">Save settings</button>
+    <div id="settings-status" class="status"></div>
+  </section>
+
+  <script src="/app.js"></script>
+</body>
+</html>

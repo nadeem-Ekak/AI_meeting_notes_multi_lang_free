@@ -1,0 +1,10 @@
+[project]
+name = "multilingual-meeting-transcription"
+version = "1.0.0"
+description = "Multilingual & code-switching meeting transcription, notes and MoM"
+requires-python = ">=3.10"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+filterwarnings = ["ignore::DeprecationWarning"]

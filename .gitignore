@@ -1,0 +1,25 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+.mypy_cache/
+
+# Databases
+*.db
+*.sqlite3
+
+# Uploads & generated artifacts
+uploads/
+benchmarks/results/
+tests/fixtures/audio/*.wav
+tests/fixtures/audio/*.mp3
+tests/fixtures/audio/*.ogg
+
+# Environment & secrets
+.env
+
+# OS / editor
+Thumbs.db
+.DS_Store
